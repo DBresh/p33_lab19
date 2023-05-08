@@ -28,7 +28,8 @@ a{
 
 .flag{
     width: 80px;
-    height: 55px;
+    height: 54px;
+    margin-top: 6px;
 }
 
 .nameDiv{
@@ -96,5 +97,15 @@ a{
 
     .country:hover{
         transform: scale(0.93);
+    }
+}
+
+@media (max-width: 352px){
+    .country{
+        height: 52px;
+    }
+
+    .flag{
+        height: 52px;
     }
 }

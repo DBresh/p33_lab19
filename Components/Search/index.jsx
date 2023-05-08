@@ -1,37 +1,53 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import "./search.css"
+import React, { useState } from "react";
 
 const SearchInput = ({ countries }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const handleInputChange = (event) => {
     const term = event.target.value;
     setSearchTerm(term);
 
-    const results = Object.values(countries).filter((country) => {
-      console.log(country)
-      country.name.common.toLowerCase().includes(term.toLowerCase())
-    }
-    );
+    const results = countries.allCountries.filter((country) => {
+      if (
+        String(country.name.common)
+          .toLowerCase()
+          .includes(term.toLowerCase())
+      ) {
+        return country;
+      }
+    });
     setSearchResults(results);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      const cca3 = searchResults[0]?.cca3;
+      if (cca3) {
+        window.location.href = `/about/${cca3}`;
+      }
+    }
+  };
+
   return (
-    <div>
+    <div className="search">
       <input
         type="text"
         value={searchTerm}
         onChange={handleInputChange}
-        placeholder="Введите название страны"
+        onKeyDown={handleKeyDown}
+        placeholder="Write an Country"
+        list="countries"
       />
-      <ul>
-        {searchResults.map((result) => (
-          <li key={result.name.common}>
-            <Link to={`/about/${result.name.common}`}>{result.name.common}</Link>
-          </li>
+      <datalist id="countries">
+        {searchResults.map((item) => (
+          <option
+            key={item.name.common}
+            value={item.name.common}
+          ></option>
         ))}
-      </ul>
+      </datalist>
     </div>
   );
 };

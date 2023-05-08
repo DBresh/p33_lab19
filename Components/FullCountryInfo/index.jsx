@@ -15,8 +15,8 @@ function mainCurrencie(item) {
 
 function FullCountryInfo({ country, allCountries }) {
     return (
-        <div>
-            <Header allCountries={allCountries}/>
+        <>
+            <Header allCountries={allCountries} />
             <div className="fullInfoDiv">
                 <div className="bigFlagDiv">
                     <img
@@ -116,11 +116,21 @@ function FullCountryInfo({ country, allCountries }) {
                         </p>
                     </div>
                 </div>
-
+                {/* <div className="buttons">
+                    <Link className="goBack" to="/">
+                        <button className="button_">To Main Page</button>
+                    </Link>
+                    <Link className="goBack" to="/">
+                        <button className="button_">Country Info</button>
+                    </Link>
+                    <Link className="goBack" to="/">
+                        <button className="button_">Map</button>
+                    </Link>
+                </div> */}
                 {/* <DisplayMap country={country} /> */}
                 {/* const defaultCenter = { lat: 0, lng: 0 }; */}
             </div>
-        </div>
+        </>
     );
 }
 

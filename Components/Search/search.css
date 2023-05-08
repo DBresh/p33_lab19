@@ -1,0 +1,16 @@
+input {
+    background-color: #242424;
+    color: #ffffff;
+    border: none; 
+    padding: 10px;
+    /* height: 50px; */
+    max-height: 32px;
+    padding: 0px;
+}
+
+.search{
+    border: 1px solid rgba(255, 255, 255, 0.61);
+    height: 32px;
+    margin: 0px;
+    display: flex;
+}

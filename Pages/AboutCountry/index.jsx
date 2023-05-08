@@ -6,22 +6,28 @@ import Header from "../../Components/Header";
 import FullCountryInfo from "../../Components/FullCountryInfo";
 
 function AboutCountry() {
-    const { cca3 } = useParams();
-    const [country, setCountry] = useState(null);
-    useEffect(() => {
-        async function fetchCountry() {
+    const [allCountries, setAllCountries] = useState([]);
+    const { cca3 } = useParams()
+    const country = allCountries.find((item) => item.cca3 === cca3)
+    
+    useEffect(
+        () => async () => {
             try {
-                const response = await axios(
-                    `https://restcountries.com/v3.1/alpha/${cca3}`
+                const result = await axios(
+                    "https://restcountries.com/v3.1/all"
                 );
-                setCountry(response.data[0]);
-            } catch {
-                setCountry("Error");
-            }
-        }
-        fetchCountry();
-    }, [cca3]);
 
+                const resultAddId = result.data.map((item, ind) => {
+                    return { ...item, index: ind + 1 };
+                });
+
+                setAllCountries(resultAddId);
+            } catch {
+                setAllCountries("Error");
+            }
+        },
+        []
+        );
     if (!country) {
         return <div>Loading...</div>;
     }
@@ -31,10 +37,7 @@ function AboutCountry() {
 
     return (
         <>
-            <FullCountryInfo country={country} />
-            <Link className="goBack" to="/">
-                <button className="button_">go back</button>
-            </Link>
+            <FullCountryInfo country={country} allCountries={allCountries} />
         </>
     );
 }

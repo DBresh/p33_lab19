@@ -46,7 +46,6 @@ function Home() {
         );
         return (
             <>
-            <Header allCountries={allCountries}/>
             <CountryList currentCountries={currentCountry} allCountries={allCountries} />
             <Pagination
                 currentPage={currentPage}

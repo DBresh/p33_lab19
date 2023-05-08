@@ -98,7 +98,7 @@ button {
     flex-wrap: wrap;
 }
 
-@media (max-width: 1163px) {
+@media (max-width: 1186px) {
     .fullInfoDiv{
       flex-direction: column;
       /* justify-content: center; */
@@ -107,13 +107,13 @@ button {
 
     .bigFlag{
       max-width: 370px;
-      max-height: 257px;
+      max-height: 200px;
     }
     
     .infoDiv{
       /* margin-top: 15px; */
       min-height: 350px;
-      width: 70%;
+      /* width: 70%; */
     }
 
     .borders{
@@ -151,7 +151,7 @@ button {
   .infoDiv{
     /* margin-top: 15px; */
     min-height: 470px;
-    width: 70%;
+    /* width: 70%; */
   }
   
   .bigFlag{
@@ -191,7 +191,7 @@ button {
   }
 }
 
-@media (max-width: 355px) {
+@media (max-width: 359px) {
   .bigFlag{
     max-width: 200px;
     max-height: 100px;
