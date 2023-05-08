@@ -1,0 +1,199 @@
+p {
+    font-weight: bolder;
+    color: rgb(204, 202, 202);
+    margin: 0px;
+}
+
+span {
+    font-weight: 100;
+    font-size: 24px;
+    color: rgb(179, 177, 177);
+}
+
+.info_block button {
+    margin: 0px 3px 3px 3px;
+    width: 70px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1f252d;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: rgb(179, 177, 177);
+}
+
+.info_block button:hover {
+    background-color: #0d1014;
+}
+
+.borders {
+    max-width: 600px;
+}
+
+.fullInfoDiv {
+    /* width: 100%; */
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.infoDiv {
+    min-width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* max-height: 333px; */
+}
+
+.infoCountry {
+    /* width: 60%; */
+    font-size: 20px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+    /* max-height: 150px; */
+}
+
+.borders {
+    font-size: 20px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+}
+
+.bigFlagDiv {
+  display: flex;
+  justify-content: center;
+  /* padding-top: 17px; */
+  /* height: 100%; */
+  /* display: flex; */
+  /* align-items: start; */
+  /* justify-content: start; */
+}
+
+.bigFlag {
+  /* margin-left: 15px; */
+  width: 500px;
+}
+
+.Caption {
+    font-size: 45px;
+}
+
+button {
+    margin: 5px 0px 0px 5px;
+    font-size: 15px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    max-height: 150px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1163px) {
+    .fullInfoDiv{
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+    }
+
+    .bigFlag{
+      max-width: 370px;
+      max-height: 257px;
+    }
+    
+    .infoDiv{
+      /* margin-top: 15px; */
+      min-height: 350px;
+      width: 70%;
+    }
+
+    .borders{
+      display: flex;
+      min-width: 100%;
+      /* width: 800px; */
+    }
+
+    .details{
+      text-align: start;
+      align-content: space-between;
+    }
+
+    .Caption{
+      text-align: center;
+      padding: 0px;
+    }
+
+    p{
+      padding-left: 10px;
+    }
+}
+
+@media (max-width: 762px) {
+  .details{
+    max-height: none;
+    flex-wrap: nowrap;
+  }
+
+  .infoCountry{
+    display: flex;
+    justify-content: center;
+  }
+
+  .infoDiv{
+    /* margin-top: 15px; */
+    min-height: 470px;
+    width: 70%;
+  }
+  
+  .bigFlag{
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 762px) {
+  .infoCountry{
+    font-size: 16px;
+  }
+
+  span{
+    font-size: 16px;
+  }
+
+  .Caption{
+    font-size: 40px;
+  }
+
+  .borders{
+    font-size: 16px;
+  }
+
+  button{
+    width: 50px;
+    border-radius: 8px;
+    font-size: 10px;
+  }
+
+  .infoDiv{
+    min-height: 350px;
+  }
+
+  .header{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 355px) {
+  .bigFlag{
+    max-width: 200px;
+    max-height: 100px;
+  }
+}

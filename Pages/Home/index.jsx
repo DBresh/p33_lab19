@@ -44,11 +44,10 @@ function Home() {
         },
         []
         );
-        console.log(allCountries)
         return (
             <>
-            <Header />
-            <CountryList allCountries={currentCountry} />
+            <Header allCountries={allCountries}/>
+            <CountryList currentCountries={currentCountry} allCountries={allCountries} />
             <Pagination
                 currentPage={currentPage}
                 totalPages={countPages}

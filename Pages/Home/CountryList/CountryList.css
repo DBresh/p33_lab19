@@ -1,8 +1,8 @@
 
 .allCountries{
-    /* width: 25vw; */
+    width: 50vw;
     max-width: 400px;
-    min-width: 350px;
+    min-width: 250px;
 }
 
 a{
@@ -15,16 +15,20 @@ a{
     justify-content: space-between;
     text-align: end;
     height: 55px;
-    border: red solid 2px;
+    border: rgba(255, 255, 255, 0.87) solid 1px;
+    transition: transform 0.5s;
+    align-items: center;
 }
 
 .country:hover{
     background-color: #3d3d3d;
+    /* margin-left: 15px; */
+    transform: scale(1.05);
 }
 
 .flag{
     width: 80px;
-    height: 60px;
+    height: 55px;
 }
 
 .nameDiv{
@@ -34,17 +38,21 @@ a{
 }
 
 .allCountriesDiv{
-    width: 100vw;
+    /* width: 100vw; */
     display: flex;
     justify-content: space-between;
+    padding: 0px 15px 0px 15px;
+    /* margin: 0px 0px 0px 15px; */
 }
 
 .moreInfoDiv{
     width: 50vw;
-    border: 1px red solid;
+    min-height: 575px;
+    /* border: 1px red solid; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 20px;
 }
 
 .moreInfoFlag{
@@ -57,9 +65,12 @@ a{
 }
 
 .flagCaptionDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 70%;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     text-align: center;
 }
 
@@ -68,4 +79,22 @@ a{
     align-items: center;
     height: 30%;
     font-size: 19px;
+}
+
+@media (max-width: 550px){
+    .moreInfoDiv{
+        display: none;
+    }
+
+    .allCountriesDiv{
+        justify-content: center;
+    }
+
+    .allCountries{
+        width: 90%;
+    }
+
+    .country:hover{
+        transform: scale(0.93);
+    }
 }

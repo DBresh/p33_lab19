@@ -8,7 +8,7 @@ function AppRouter(){
     return (
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about/:nameCountry" element={<AboutCountry />} />
+        <Route path="/about/:cca3" element={<AboutCountry />} />
       </Routes>
     );
 }

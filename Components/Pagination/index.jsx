@@ -10,8 +10,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   const renderPageNumbers = () => {
     const pageList = [];
-
-    const numberOfpagesOnWhichSide = 2;
+    const numberOfpagesOnWhichSide = window.innerWidth <= 550 ? 1 : 2;
+    
     let hasStartedDots = false;
     let hasEndedDots = false;
 

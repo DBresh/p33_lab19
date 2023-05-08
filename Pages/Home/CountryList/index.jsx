@@ -2,7 +2,7 @@ import "./CountryList.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function CountryList({ allCountries }) {
+function CountryList({ currentCountries, allCountries }) {
     const [showDiv, setShowDiv] = useState({
         isVisible: false,
         object: null,
@@ -11,7 +11,7 @@ function CountryList({ allCountries }) {
     const handleMouseEnter = (id) => {
         setShowDiv({
             isVisible: true,
-            object: allCountries.find((item) => item.index === id),
+            object: currentCountries.find((item) => item.index === id),
         });
     };
 
@@ -22,18 +22,22 @@ function CountryList({ allCountries }) {
         });
     };
 
-    if (allCountries.length === 0) {
+    function nativeLanguage(item){
+        return Object.keys(item.name.nativeName)[0];
+    }
+    
+    if (currentCountries.length === 0) {
         return <div>Loading...</div>;
     }
     return (
         <div className="allCountriesDiv">
             <div className="allCountries">
-                {allCountries.map((item) => (
+                {currentCountries.map((item) => (
                     <Link
                         key={item.name.common}
                         onMouseEnter={() => handleMouseEnter(item.index)}
                         // onMouseLeave={handleMouseLeave}
-                        to={`/about/${item.name.common}`}
+                        to={`/about/${item.cca3}`}
                     >
                         <div className="country">
                             <div className="flagDiv">
@@ -46,9 +50,6 @@ function CountryList({ allCountries }) {
                             <div className="nameDiv">
                                 <div className="nameCountry">
                                     {item.name.common}
-                                </div>
-                                <div className="indexCountry">
-                                    index: {item.index}
                                 </div>
                             </div>
                         </div>
@@ -70,11 +71,12 @@ function CountryList({ allCountries }) {
                         </div>
                     </div>
                     <div className="info">
-                        Native Name: {showDiv.object.name.official} <br />
+                        Native Name: {showDiv.object.name.nativeName[nativeLanguage(showDiv.object)].common} <br />
                         Independency: {showDiv.object.independent === true ? "Independent" : "Dependent"} <br />
                         Capital: {showDiv.object.capital} <br />
                         Region: {showDiv.object.region} <br />
-                        SubRegion: {showDiv.object.subregion}
+                        SubRegion: {showDiv.object.subregion} <br />
+                        Main Language: {showDiv.object.languages[nativeLanguage(showDiv.object)]}
                     </div>
                 </div>
             )}
