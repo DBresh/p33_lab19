@@ -98,6 +98,18 @@ button {
     flex-wrap: wrap;
 }
 
+.buttons {
+  margin: 10px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.buttons button {
+  margin: 10px
+}
+
 @media (max-width: 1186px) {
     .fullInfoDiv{
       flex-direction: column;
@@ -157,6 +169,10 @@ button {
   .bigFlag{
     max-width: 300px;
   }
+
+  .buttons button {
+    width: 80px;
+  }
 }
 
 @media (max-width: 762px) {
@@ -193,7 +209,7 @@ button {
 
 @media (max-width: 359px) {
   .bigFlag{
-    max-width: 200px;
-    max-height: 100px;
+    max-width: 250px;
+    max-height: 150px;
   }
 }

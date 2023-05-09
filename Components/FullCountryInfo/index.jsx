@@ -2,6 +2,7 @@ import Header from "../Header";
 import DisplayMap from "../Map";
 import "./fullCountry.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function nativeLanguage(item) {
     return Object.keys(item.name.nativeName)[0];
@@ -14,16 +15,30 @@ function mainCurrencie(item) {
 // currentCountries.find((item) => item.index === id)
 
 function FullCountryInfo({ country, allCountries }) {
+    const [showMap, setShowMap] = useState(false);
+
+    const toggleMap = () => {
+        setShowMap(true);
+    };
+
+    const toggleInfo = () => {
+        setShowMap(false);
+    };
+
     return (
         <>
             <Header allCountries={allCountries} />
             <div className="fullInfoDiv">
                 <div className="bigFlagDiv">
-                    <img
-                        src={country.flags.svg}
-                        alt="flag svg"
-                        className="bigFlag"
-                    />
+                    {showMap ? (
+                        <DisplayMap chosenCountry={country}/>
+                    ) : (
+                        <img
+                            src={country.flags.svg}
+                            alt="flag svg"
+                            className="bigFlag"
+                        />
+                    )}
                 </div>
                 <div className="infoDiv">
                     <p className="Caption">{country.name.common}</p>
@@ -115,18 +130,18 @@ function FullCountryInfo({ country, allCountries }) {
                                   ))}
                         </p>
                     </div>
+                    <div className="buttons">
+                        <Link className="goBack" to="/">
+                            <button className="">To Main Page</button>
+                        </Link>
+                        <button className="" onClick={toggleInfo}>
+                            Country Info
+                        </button>
+                        <button className="" onClick={toggleMap}>
+                            Map
+                        </button>
+                    </div>
                 </div>
-                {/* <div className="buttons">
-                    <Link className="goBack" to="/">
-                        <button className="button_">To Main Page</button>
-                    </Link>
-                    <Link className="goBack" to="/">
-                        <button className="button_">Country Info</button>
-                    </Link>
-                    <Link className="goBack" to="/">
-                        <button className="button_">Map</button>
-                    </Link>
-                </div> */}
                 {/* <DisplayMap country={country} /> */}
                 {/* const defaultCenter = { lat: 0, lng: 0 }; */}
             </div>

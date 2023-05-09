@@ -7,11 +7,11 @@ import FullCountryInfo from "../../Components/FullCountryInfo";
 
 function AboutCountry() {
     const [allCountries, setAllCountries] = useState([]);
-    const { cca3 } = useParams()
-    const country = allCountries.find((item) => item.cca3 === cca3)
-    
-    useEffect(
-        () => async () => {
+    const { cca3 } = useParams();
+    const country = allCountries.find((item) => item.cca3 === cca3);
+
+    useEffect(() => {
+        const fetchData = async () => {
             try {
                 const result = await axios(
                     "https://restcountries.com/v3.1/all"
@@ -22,17 +22,29 @@ function AboutCountry() {
                 });
 
                 setAllCountries(resultAddId);
-            } catch {
-                setAllCountries("Error");
+            } catch (error) {
+                setAllCountries([]);
             }
-        },
-        []
-        );
-    if (!country) {
+        };
+
+        fetchData();
+    }, []);
+    
+    if (allCountries.length === 0) {
+        
         return <div>Loading...</div>;
     }
-    if (country === "Error") {
-        return <div>Error.</div>;
+    
+    if (country === undefined) { 
+        return (
+            <div className="error">
+                <img src="../../src/Components/img/404.jfif" alt="" />
+            </div>
+        );
+    } 
+
+    if (country.cca3 === "RUS") {
+        window.location.href = `https://youtu.be/64qSNiUmaAk?t=33`;
     }
 
     return (

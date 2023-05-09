@@ -37,7 +37,7 @@ const SearchInput = ({ countries }) => {
         value={searchTerm}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        placeholder="Write an Country"
+        placeholder="Write a Country"
         list="countries"
       />
       <datalist id="countries">

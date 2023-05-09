@@ -5,7 +5,7 @@ import "./map.css"
 const DisplayMap = ({chosenCountry}) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'yourapi',
+    googleMapsApiKey: 'AIzaSyDn8lwaGCjJfPlwfnBJZPgjis3ZJwEH46A',
   });
 
   const defaultCenter = {
