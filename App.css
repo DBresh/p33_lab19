@@ -1,9 +1,41 @@
 #root {
   width: 100vw;
-  /* max-width: 1280px; */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* text-align: center; */
 }
 
+.buttonSort{
+  border-radius: 8px;
+  color: white;
+  width: 75px;
+  height: 50px;
+  border: 1px red solid;
+  text-align: center;
+  margin-left: 8px;
+  margin-top: 8px;
+  background: #1f252d;
+}
 
+.buttonSort:hover{
+  background: #35404e;
+
+}
+
+.activeButton{
+  background: #687d96;
+}
+
+.sorts{
+  display: flex;
+}
+
+.buttonsSortDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.continents{
+  display: flex;
+}
+
+.regionsDiv{
+  display: flex;
+}

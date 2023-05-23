@@ -27,19 +27,34 @@ function CountryList({ currentCountries, allCountries }) {
         return Object.keys(item.name.nativeName)[0];
     }
 
+    const [currentPage, setCurrentPage] = useState(
+        Number(sessionStorage.getItem("pageNum"))
+    );
+    // console.log(currentPage)
+    // const countPages = allCountries.length / 10;
+    // const lastCountryIndex = currentPage * 10;
+    // const firstCountryIndex = lastCountryIndex - 10;
+
     if (currentCountries.length === 0) {
-        return <div>Loading...</div>;
-    }
+        currentCountries = allCountries
+        // return <div>Loading...</div>;
+    } 
+    // else {
+    //     currentCountries = currentCountries.slice(
+    //         firstCountryIndex,
+    //         lastCountryIndex
+    //     );
+    // }
     return (
         <>
-            <Header allCountries={allCountries}/>
+            <Header allCountries={allCountries} />
             <div className="allCountriesDiv">
                 <div className="allCountries">
                     {currentCountries.map((item) => (
                         <Link
                             key={item.name.common}
                             onMouseEnter={() => handleMouseEnter(item.index)}
-                            onMouseLeave={handleMouseLeave}
+                            // onMouseLeave={handleMouseLeave}
                             to={`/about/${item.cca3}`}
                         >
                             <div className="country">
@@ -54,6 +69,9 @@ function CountryList({ currentCountries, allCountries }) {
                                     <div className="nameCountry">
                                         {item.name.common}
                                     </div>
+                                </div>
+                                <div>
+                                    {item.index}
                                 </div>
                             </div>
                         </Link>
@@ -86,7 +104,11 @@ function CountryList({ currentCountries, allCountries }) {
                                 ? "Independent"
                                 : "Dependent"}{" "}
                             <br />
-                            Capital: {showDiv.object.capital} <br />
+                            Capital:{" "}
+                            {showDiv.object.capital
+                                ? showDiv.object.capital
+                                : "-"}{" "}
+                            <br />
                             Region: {showDiv.object.region} <br />
                             SubRegion: {showDiv.object.subregion} <br />
                             Main Language:{" "}

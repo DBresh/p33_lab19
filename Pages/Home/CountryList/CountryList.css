@@ -14,7 +14,7 @@ a{
     display: flex;
     justify-content: space-between;
     text-align: end;
-    height: 55px;
+    height: 50px;
     border: rgba(255, 255, 255, 0.87) solid 1px;
     transition: transform 0.5s;
     align-items: center;
@@ -28,7 +28,7 @@ a{
 
 .flag{
     width: 80px;
-    height: 54px;
+    height: 49px;
     margin-top: 6px;
 }
 
@@ -48,7 +48,7 @@ a{
 
 .moreInfoDiv{
     width: 50vw;
-    min-height: 575px;
+    max-height: 525px;
     /* border: 1px red solid; */
     display: flex;
     flex-direction: column;
@@ -62,7 +62,9 @@ a{
 }
 
 .moreInfoCaption{
-    font-size: 50px;
+    font-size: 40px;
+    margin-bottom: 10px;
+    box-sizing: content-box;
 }
 
 .flagCaptionDiv{

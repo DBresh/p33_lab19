@@ -13,7 +13,7 @@ const SearchInput = ({ countries }) => {
       if (
         String(country.name.common)
           .toLowerCase()
-          .includes(term.toLowerCase())
+          .startsWith(term.toLowerCase())
       ) {
         return country;
       }
