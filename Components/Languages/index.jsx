@@ -17,7 +17,7 @@ function Languages() {
     const [uniqueSubregionsByRegion, setUniqueSubregionsByRegion] = useState(
         []
     );
-    const [languageName, setLanguageName] = useState("");
+    const [languageName, setLanguageName] = useState(null);
 
     const lastCountryIndex = currentPage * countItems;
     const firstCountryIndex = lastCountryIndex - countItems;
@@ -155,9 +155,12 @@ function Languages() {
                     "https://restcountries.com/v3.1/all"
                 );
 
-                const resultAddId = result.data.map((item, ind) => {
+                const finalResult = result.data.filter(item => item.name.common !== "Antarctica" && item.name.common !== "Russia")
+
+                const resultAddId = finalResult.map((item, ind) => {
                     return { ...item, index: ind + 1 };
                 });
+
                 const sortLanguage = resultAddId.filter(
                     (item) => item.languages && item.languages[languageCode]
                 );
@@ -182,8 +185,6 @@ function Languages() {
         }, []);
         setUniqueSubregionsByRegion(tmp);
     }, [allCountries]);
-    
-    console.log(languageName)
 
     if (allCountries.length === 0) {
         return <div>loading</div>;

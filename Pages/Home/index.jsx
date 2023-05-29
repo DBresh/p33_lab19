@@ -154,11 +154,14 @@ function Home() {
                 const result = await axios(
                     "https://restcountries.com/v3.1/all"
                 );
+                
+                const finalResult = result.data.filter(item => item.name.common !== "Antarctica" && item.name.common !== "Russia")
 
-                const resultAddId = result.data.map((item, ind) => {
+                const resultAddId = finalResult.map((item, ind) => {
                     return { ...item, index: ind + 1 };
                 });
                 
+
                 setAllCountries(resultAddId);
             } catch {
                 setAllCountries("Error");

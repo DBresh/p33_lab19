@@ -37,7 +37,7 @@ function CountryList({ currentCountries, allCountries, langName }) {
 
     return (
         <>
-            <Header allCountries={allCountries} langName={langName}/>
+            <Header allCountries={allCountries} langName={langName !== undefined ? langName : null}/>
             <div className="allCountriesDiv">
                 <div className="allCountries">
                     {currentCountries.map((item) => (

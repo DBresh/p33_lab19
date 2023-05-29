@@ -9,7 +9,7 @@ const SearchInput = ({ countries }) => {
     const term = event.target.value;
     setSearchTerm(term);
 
-    const results = countries.allCountries.filter((country) => {
+    const results = countries.filter((country) => {
       if (
         String(country.name.common)
           .toLowerCase()

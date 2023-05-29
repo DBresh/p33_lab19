@@ -2,7 +2,7 @@ import SearchInput from "../Search";
 import "./index.css";
 import { Link } from "react-router-dom";
 
-function Header({ allCountries, langName }) {
+function Header({allCountries, langName}) {
     return (
         <div className="header">
             <div className="ad">

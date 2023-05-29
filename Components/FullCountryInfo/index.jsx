@@ -1,7 +1,7 @@
 import Header from "../Header";
 import DisplayMap from "../Map";
 import "./fullCountry.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 function nativeLanguage(item) {
@@ -23,9 +23,10 @@ function FullCountryInfo({ country, allCountries }) {
         setShowMap(false);
     };
 
+const { cca3 } = useParams();
     return (
         <>
-            <Header allCountries={allCountries} />
+            <Header allCountries={allCountries} langName={null}/>
             <div className="fullInfoDiv">
                 <div className="bigFlagDiv">
                     {showMap ? (
@@ -108,13 +109,13 @@ function FullCountryInfo({ country, allCountries }) {
                                     <Link
                                         to={`/about/${country.cca3}/${Object.keys(country.languages)[0]}`}
                                     >
-                                        <span>
+                                        <button>
                                             {
                                                 country.languages[
                                                     nativeLanguage(country)
                                                 ]
                                             }
-                                        </span>
+                                        </button>
                                     </Link>
                                 </p>
                             </div>
@@ -132,6 +133,18 @@ function FullCountryInfo({ country, allCountries }) {
                                   ))}
                         </p>
                     </div>
+                    <div className="borders">
+                        <p>
+                            Languages:{" "}
+                            {country.languages === undefined
+                                ? "-"
+                                : Object.keys(country.languages).map((item) => (
+                                      <Link key={item} to={`/about/${cca3}/${item}`}>
+                                          <button>{item.toUpperCase()}</button>
+                                      </Link>
+                                  ))}
+                        </p>
+                    </div>
                     <div className="buttons">
                         <Link className="goBack" to="/">
                             <button className="">To Main Page</button>
@@ -144,8 +157,6 @@ function FullCountryInfo({ country, allCountries }) {
                         </button>
                     </div>
                 </div>
-                {/* <DisplayMap country={country} /> */}
-                {/* const defaultCenter = { lat: 0, lng: 0 }; */}
             </div>
         </>
     );
