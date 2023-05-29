@@ -1,7 +1,7 @@
 import Header from "../Header";
 import DisplayMap from "../Map";
 import "./fullCountry.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 function nativeLanguage(item) {
@@ -11,8 +11,6 @@ function nativeLanguage(item) {
 function mainCurrencie(item) {
     return Object.keys(item.currencies)[0];
 }
-
-// currentCountries.find((item) => item.index === id)
 
 function FullCountryInfo({ country, allCountries }) {
     const [showMap, setShowMap] = useState(false);
@@ -31,7 +29,7 @@ function FullCountryInfo({ country, allCountries }) {
             <div className="fullInfoDiv">
                 <div className="bigFlagDiv">
                     {showMap ? (
-                        <DisplayMap chosenCountry={country}/>
+                        <DisplayMap chosenCountry={country} />
                     ) : (
                         <img
                             src={country.flags.svg}
@@ -107,13 +105,17 @@ function FullCountryInfo({ country, allCountries }) {
                                 </p>
                                 <p>
                                     Main Language:{" "}
-                                    <span>
-                                        {
-                                            country.languages[
-                                                nativeLanguage(country)
-                                            ]
-                                        }
-                                    </span>
+                                    <Link
+                                        to={`/about/${country.cca3}/${Object.keys(country.languages)[0]}`}
+                                    >
+                                        <span>
+                                            {
+                                                country.languages[
+                                                    nativeLanguage(country)
+                                                ]
+                                            }
+                                        </span>
+                                    </Link>
                                 </p>
                             </div>
                         </div>

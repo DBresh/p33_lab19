@@ -3,7 +3,6 @@ import "../../App.css";
 import { useEffect, useState } from "react";
 import CountryList from "./CountryList";
 import Pagination from "../../Components/Pagination";
-import Header from "../../Components/Header";
 
 function Home() {
     const [allCountries, setAllCountries] = useState([]);
@@ -147,8 +146,6 @@ function Home() {
 
         setflagSortAB(true);
         setIndexSort(true);
-
-        console.log(sortedCountry);
     };
 
     useEffect(
@@ -161,7 +158,7 @@ function Home() {
                 const resultAddId = result.data.map((item, ind) => {
                     return { ...item, index: ind + 1 };
                 });
-
+                
                 setAllCountries(resultAddId);
             } catch {
                 setAllCountries("Error");

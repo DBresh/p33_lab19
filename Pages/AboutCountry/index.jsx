@@ -31,7 +31,6 @@ function AboutCountry() {
     }, []);
     
     if (allCountries.length === 0) {
-        
         return <div>Loading...</div>;
     }
     

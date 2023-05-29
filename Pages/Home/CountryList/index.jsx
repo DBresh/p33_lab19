@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../../Components/Header";
 
-function CountryList({ currentCountries, allCountries }) {
+function CountryList({ currentCountries, allCountries, langName }) {
     const [showDiv, setShowDiv] = useState({
         isVisible: false,
         object: null,
@@ -30,24 +30,14 @@ function CountryList({ currentCountries, allCountries }) {
     const [currentPage, setCurrentPage] = useState(
         Number(sessionStorage.getItem("pageNum"))
     );
-    // console.log(currentPage)
-    // const countPages = allCountries.length / 10;
-    // const lastCountryIndex = currentPage * 10;
-    // const firstCountryIndex = lastCountryIndex - 10;
 
     if (currentCountries.length === 0) {
         currentCountries = allCountries
-        // return <div>Loading...</div>;
     } 
-    // else {
-    //     currentCountries = currentCountries.slice(
-    //         firstCountryIndex,
-    //         lastCountryIndex
-    //     );
-    // }
+
     return (
         <>
-            <Header allCountries={allCountries} />
+            <Header allCountries={allCountries} langName={langName}/>
             <div className="allCountriesDiv">
                 <div className="allCountries">
                     {currentCountries.map((item) => (

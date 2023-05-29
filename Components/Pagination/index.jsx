@@ -17,7 +17,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
     pageNumbers.map((item) => {
       if (
-        // Умови за яких буде відображатися кнопка з номером сторінки
         ((currentPage === 1 || currentPage <= numberOfpagesOnWhichSide+1) && item <= numberOfpagesOnWhichSide*2+2) ||
         ((currentPage === totalPages || currentPage >= totalPages - numberOfpagesOnWhichSide-1) &&
           item >= totalPages - (numberOfpagesOnWhichSide*2+1)) ||
@@ -26,7 +25,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         (item >= currentPage - numberOfpagesOnWhichSide &&
           item <= currentPage + numberOfpagesOnWhichSide)
       ) {
-        //
+
         pageList.push(
           <button
             key={item}
